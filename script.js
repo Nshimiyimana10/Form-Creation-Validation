@@ -14,16 +14,19 @@ document.addEventListener("DOMContentLoaded", () =>{
       const messages = [];
 
       if(username.length < 3){
+        isValid = false;
         const error1 ="please enter correct username"
          messages.push(error1)
       }
 
       if(!email.includes("@") && !email.includes(".")){
+        isValid =false;
         const error2 = "Please enter valid email"
        messages.push(error2);
       }
 
       if(!password.length >= 8){
+        isValid = false;
         const error3 = "Please enter correct password"
         messages.push(error3)
       }
