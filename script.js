@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     else{
         event.preventDefault()
-        feedbackDiv.innerHTML = messages.join("")
+        feedbackDiv.innerHTML = messages.join("") + "<br>";
         feedbackDiv.style.color ="#dc3545"
     }
 })
