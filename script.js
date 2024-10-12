@@ -3,7 +3,6 @@ const submitBtn = document.getElementById("submit");
 const feedbackDiv = document.getElementById("form-feedback");
 
 document.addEventListener("DOMContentLoaded", () =>{
-    console.log("HTML form loaded before JavaScript");
     form.addEventListener("submit", (event) =>{
       event.preventDefault()
 
