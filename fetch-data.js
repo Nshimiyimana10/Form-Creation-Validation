@@ -1,50 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("Page fully loaded we can now fetch the posts");
-  
-    fetchData();
+   
+    fetchUserData();
   });
   // Display our posts on the HTML page
   
-  const fetchData = async () => {
-    const url = "https://jsonplaceholder.typicode.com/posts";
+  const fetchUserData = async () => {
+    const apiUrl = 'https://jsonplaceholder.typicode.com/users'
+    const dataContainer = document.getElementById("api-data");
   
     try {
-      const response = await fetch(url);
+      const response = await fetch(apiUrl);
+      const users = await response.json();
+      dataContainer.innerHTML = '';
   
-      console.log(response);
+      console.log(users);
+
+      const userList = document.createElement("ul");
+      users.forEach((user) =>{
+        const li = document.createElement("li");
+        li.textContent = users.name;
+        userList.appendChild(li);
+        dataContainer.appendChild(userList);
+      })
   
-      if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-      }
-  
-      const json = await response.json(); // 100 posts
-  
-      console.log(json);
-  
-      json.forEach(addToDom);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-  
-  const postsContainer = document.querySelector(".posts_container");
-  
-  // Add our Posts to the DOM
-  const addToDom = (post) => {
-    const postCard = document.createElement("div");
-    postCard.classList.add("post_card");
-  
-    const title = document.createElement("p");
-    title.classList.add("title");
-    title.innerText = post.title;
-  
-    postCard.appendChild(title);
-  
-    const body = document.createElement("p");
-    body.classList.add("body");
-    body.innerText = post.body;
-  
-    postCard.appendChild(body);
-  
-    postsContainer.appendChild(postCard);
-  };
+  }
+  catch(error){
+    error.textContent ="Failed to load user data."
+  }
+};
