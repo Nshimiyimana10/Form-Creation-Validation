@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () =>{
       if(username.length < 3){
         isValid = false;
         const error1 ="please enter correct username"
-         messages.push(error1)
+        messages.push(error1)
       }
 
       if(!email.includes("@") && !email.includes(".")){
@@ -32,4 +32,14 @@ document.addEventListener("DOMContentLoaded", () =>{
       }
 
     })
+
+    if(isValid = true){
+        feedbackDiv.textContent = "Registration successful!"
+        feedbackDiv.style.color = "#28a745";
+    }
+
+    else{
+        feedbackDiv.innerHTML = messages
+        feedbackDiv.style.color ="#dc3545"
+    }
 })
