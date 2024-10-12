@@ -3,7 +3,7 @@ const submitBtn = document.getElementById("submit");
 const feedbackDiv = document.getElementById("form-feedback");
 
 document.addEventListener("DOMContentLoaded", () =>{
-    form.addEventListener("submit", (event) =>{
+    form.addEventListener("submit", function(event){
       const username = document.getElementById("username").value.trim()
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
