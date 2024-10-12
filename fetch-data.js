@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
    
     fetchUserData();
   });
-  // Display our posts on the HTML page
+  // Display user data on the HTML page
   
   const fetchUserData = async function(){
     const apiUrl = 'https://jsonplaceholder.typicode.com/users'
@@ -17,10 +17,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const userList = document.createElement("ul");
       users.forEach((user) =>{
+        const myUser = user.name;
         const li = document.createElement("li");
-        li.textContent = users.name;
+        li.textContent = myUser;
         userList.appendChild(li);
         dataContainer.appendChild(userList);
+    //     const li = document.createElement("li");
+    //     li.textContent = users.name;
+    //     userList.appendChild(li);
+    //     dataContainer.appendChild(userList);
       })
   
   }
