@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   // Display our posts on the HTML page
   
-  const fetchUserData = async () => {
+  const fetchUserData = async function(){
     const apiUrl = 'https://jsonplaceholder.typicode.com/users'
     const dataContainer = document.getElementById("api-data");
   
